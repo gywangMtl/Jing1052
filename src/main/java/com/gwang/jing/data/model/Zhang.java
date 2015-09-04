@@ -5,14 +5,15 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
-public class Ju {
-    @Id Long id;
-    @Index String content;
-	public String getContent() {
-		return content;
+public class Zhang {
+
+	@Id Long id;
+	@Index String context;
+	public String getContext() {
+		return context;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setContext(String context) {
+		this.context = context;
 	}
-    
+	
 }

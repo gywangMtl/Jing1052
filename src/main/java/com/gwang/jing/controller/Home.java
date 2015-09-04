@@ -14,13 +14,13 @@ public class Home {
 
     @RequestMapping("/welcome")
     public ModelAndView home() {
-        return new ModelAndView("entertext");
+        return new ModelAndView("home");
     }
 	
 	@RequestMapping("/save")
 	public ModelAndView save(@RequestParam("intext") String inText) {
 		Ju newJu = new Ju();
-		newJu.setContext(inText);
+		newJu.setContent(inText);
 		contextService.save(newJu);
 		return new ModelAndView("saved");
 	}
