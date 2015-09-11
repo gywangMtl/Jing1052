@@ -17,7 +17,7 @@ public class Home {
         return new ModelAndView("home");
     }
 	
-	@RequestMapping("/save", produces = "text/html; charset=utf-8")
+	@RequestMapping(value = "/save", produces = "text/html; charset=utf-8")
 	public ModelAndView save(@RequestParam("intext") String inText) {
 		Ju newJu = new Ju();
 		newJu.setContent(inText);
