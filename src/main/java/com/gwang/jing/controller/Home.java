@@ -12,12 +12,12 @@ public class Home {
     @Autowired
     ContextService contextService;
 
-    @RequestMapping("/welcome")
+    @RequestMapping(value="/welcome", produces = "text/html; charset=utf-8")
     public ModelAndView home() {
         return new ModelAndView("home");
     }
 	
-	@RequestMapping("/save")
+	@RequestMapping("/save", produces = "text/html; charset=utf-8")
 	public ModelAndView save(@RequestParam("intext") String inText) {
 		Ju newJu = new Ju();
 		newJu.setContent(inText);
