@@ -7,10 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gwang.jing.data.model.Ju;
 import com.gwang.jing.service.ContextService;
+import com.gwang.jing.service.TextAnalysisService;
 @Controller
 public class Home {
     @Autowired
     ContextService contextService;
+
+	@Autowired
+	TextAnalysisService textAnalysisService;
 
     @RequestMapping(value="/welcome", produces = "text/html; charset=utf-8")
     public ModelAndView home() {
