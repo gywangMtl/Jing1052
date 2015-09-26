@@ -5,9 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gwang.jing.data.model.Ju;
+import com.gwang.jing.data.model.Zi;
 import com.gwang.jing.service.ContextService;
 import com.gwang.jing.service.TextAnalysisService;
+
+import java.util.List;
+
 @Controller
 public class Home {
     @Autowired
@@ -23,9 +26,12 @@ public class Home {
 	
 	@RequestMapping(value = "/save", produces = "text/html; charset=utf-8")
 	public ModelAndView save(@RequestParam("intext") String inText) {
-		Ju newJu = new Ju();
-		newJu.setContent(inText);
-		contextService.save(newJu);
+	    List<String> wordList = textAnalysisService.tokennize(inText);
+		for (String w:wordList) {
+		    Zi newZi = new Zi();
+		    newZi.setZi(w);
+		    contextService.saveZi(newZi);
+		}
 		return new ModelAndView("saved");
 	}
 }
